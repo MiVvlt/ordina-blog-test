@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+ls -R
+ts-node node_modules/.bin/gatsby telemetry --disable
+ts-node node_modules/.bin/gatsby build
+ts-node node_modules/.bin/gatsby serve -H 0.0.0.0

@@ -1,0 +1,11 @@
+# Important: frontmatter’s author will need to match an id attribute in your author.yaml,
+# since that is what the mapping uses as a sort of primary key.
+- id: michael_vervloet # required! Unique identifier, ie. _ separated full name or alias
+  name: Michael Vervloet # required! (full name or alias)
+  bio: Hello world # required!
+  profilepicture: ./michael-vervloet.jpg # required! (add picture in same dir as this yaml)
+  email: michael.vervloet@ordina.be
+  phone: 0032494055857
+  linkedin: michaelvervloet
+  twitter: MiVvlt
+  github: MiVvlt
