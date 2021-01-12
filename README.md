@@ -12,5 +12,5 @@ if you don't have a node image yet, add it by running
 
 ## Open application in browser
 
-Visit: [localhost:9000](localhost:9000)
+Visit: [localhost:9000](http://localhost:9000)
 
