@@ -8,4 +8,9 @@ if you don't have a node image yet, add it by running
 
 ## Run your container:
 
-`docker run -d -p 8000:8000 --name blog ordinablog:1.0.1`
+`docker run -d -p 9000:9000 --name blog ordinablog:1.0.1`
+
+## Open application in browser
+
+Visit: [localhost:9000](localhost:9000)
+
