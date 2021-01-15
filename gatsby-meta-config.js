@@ -1,5 +1,5 @@
 module.exports = {
-  title: `Ordina Blog`,
+  title: `Ordina Bold Tech Blog`,
   description: `Blog posted about ...`,
   author: `Ordina Belgium`,
   introduction: `Some description about this blog`,

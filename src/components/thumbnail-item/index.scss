@@ -8,18 +8,18 @@
   box-shadow: none;
   transition: text-shadow 0.3s, opacity 0.4s;
   opacity: 0;
-  flex: .5;
-
-  .post-tumbnail-subtitle{
-    display: flex;
-    justify-content: space-between;
-    padding-right: 8px;
-  }
+  width: 50%;
 
   p {
     font-size: 90%;
     line-height: 1.4;
   }
+}
+.post-tumbnail-subtitle{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-right: 8px;
 }
 
 .thumbnail.visible {

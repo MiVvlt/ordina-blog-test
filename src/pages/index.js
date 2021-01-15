@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby'
 import _ from 'lodash'
 import React, { useMemo } from 'react'
-import { Bio } from '../components/bio'
 import { Category } from '../components/category'
 import { Contents } from '../components/contents'
 import { Head } from '../components/head'
@@ -94,7 +93,7 @@ export const pageQuery = graphql`
                                 }
                             }
                         }
-                        author {
+                        authors {
                             name
                             id
                         }

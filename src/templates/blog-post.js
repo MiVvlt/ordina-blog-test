@@ -28,38 +28,47 @@ export default ({ data, pageContext, location }) => {
   const metaData = data.site.siteMetadata
   const { title, comment, siteUrl } = metaData
   const { disqusShortName, utterances } = comment
-  const { title: postTitle, date, author, tags, image } = post.frontmatter
+  const { title: postTitle, date, authors, tags, image } = post.frontmatter
 
   return (
     <Layout location={location}
             title={title}>
       <Head title={postTitle}
             description={post.excerpt} />
-      <PostHeaderImage image={image} title={postTitle} />
+      <PostHeaderImage image={image}
+                       title={postTitle} />
       <PostDate date={date} />
       <PostTitle title={postTitle} />
       <TagsContainer tags={tags} />
       <PostContainer html={post.html} />
       <SocialShare title={postTitle}
-                   author={author} />
+                   authors={authors} />
       <Elements.Hr />
-      <Bio author={author}
-           isPost={true} />
-      <PostNavigator pageContext={pageContext} />
+      {
+        !!authors && authors.map((author) => {
+          return (
+            <div key={author.id}>
+              <Bio author={author}
+                   isPost={true} />
+            </div>
+          )
+        })
+        }
+        <PostNavigator pageContext={pageContext} />
       {!!disqusShortName && (
         <Disqus
-          post={post}
-          shortName={disqusShortName}
-          siteUrl={siteUrl}
-          slug={pageContext.slug}
+        post={post}
+        shortName={disqusShortName}
+        siteUrl={siteUrl}
+        slug={pageContext.slug}
         />
-      )}
+        )}
       {!!utterances && <Utterances repo={utterances} />}
-    </Layout>
-  )
-}
+        </Layout>
+        )
+      }
 
-export const pageQuery = graphql`
+      export const pageQuery = graphql`
     query BlogPostBySlug($slug: String!) {
         site {
             siteMetadata {
@@ -85,7 +94,7 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                author {
+                authors {
                     id
                     name
                     bio

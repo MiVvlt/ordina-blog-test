@@ -1,5 +1,5 @@
 ---
-author: michael_vervloet
+authors: [michael_vervloet]
 title: 'Stairway to Health 2.0 (the Ordina version)'
 image: ./banner.jpg
 tags: [Node.js, NestJS, MongoDB, Angular, Express, TypeScript, Angular-CLI, Internet of Things, LoRa]
@@ -288,14 +288,10 @@ Since users should now be able to register to the application to cheer for and m
 
 <div class="row">
     <div class="col-md-6">
-        <a href="{{ '/img/stairwaytohealth2/register.png' | prepend: site.baseurl }}" data-lightbox="results" data-title="">
-            <img alt="register" src="{{ '/img/stairwaytohealth2/register.png' | prepend: site.baseurl }}" class="image fit">
-        </a>
+            <img alt="register" src="./register.png" class="image fit">
     </div>
     <div class="col-md-6">
-        <a href="{{ '/img/stairwaytohealth2/cheer.png' | prepend: site.baseurl }}" data-lightbox="results" data-title="">
-            <img alt="cheers" src="{{ '/img/stairwaytohealth2/cheer.png' | prepend: site.baseurl }}" class="image fit">
-        </a>
+            <img alt="cheers" src="./cheer.png" class="image fit">
     </div>
 </div>
 
@@ -305,8 +301,8 @@ Since we've separated our frontend and backend code we used 2 separate Git repos
 The nice thing about deploying to OpenShift is that we can add a webhook to GitHub so that every time we merge a pull request from our develop branch to our
 master branch to our Git remote, it builds and deploys the new code immediately.
 
-<a href="{{ '/img/stairwaytohealth2/stack.png' | prepend: site.baseurl }}" data-lightbox="results" data-title="">
-    <img alt="stack" src="{{ '/img/stairwaytohealth2/stack.png' | prepend: site.baseurl }}" class="image fit">
+<a href="./stack.png" data-lightbox="results" data-title="">
+    <img alt="stack" src="./stack.png" class="image fit">
 </a>
 
 

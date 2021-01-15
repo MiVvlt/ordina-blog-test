@@ -1,5 +1,5 @@
 ---
-author: michael_vervloet
+authors: [michael_vervloet, andreas_evers]
 title: 'Stairway to Health'
 image: ./stairway-to-health.jpg
 tags: [Node.js, NestJS, MongoDB, Angular, Express, TypeScript, Angular-CLI, Internet of Things, LoRa]

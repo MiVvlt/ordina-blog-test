@@ -21,12 +21,14 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               fields {
                 slug
-                authorId
               }
               frontmatter {
                 title
                 category
                 tags
+                authors{
+                  id
+                }
                 draft
               }
             }
@@ -64,7 +66,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Create blog posts pages.
     const posts = result.data.allMarkdownRemark.edges.filter(
-      ({ node }) => !node.frontmatter.draft && !!node.frontmatter.category,
+      ({ node }) => !(!!node.frontmatter.draft) && !!node.frontmatter.category,
     )
     const authorSet = new Set()
 
@@ -72,8 +74,10 @@ exports.createPages = ({ graphql, actions }) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
-      if (post.node.fields.authorId) {
-        authorSet.add(post.node.fields.authorId)
+      if (post.node.frontmatter.authors) {
+        post.node.frontmatter.authors.forEach(author => {
+          authorSet.add(author.id)
+        })
       }
 
       createPage({
@@ -97,6 +101,7 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
+
   })
 }
 
@@ -113,11 +118,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
 
-    if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'author')) {
+
+    if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'authors')) {
       createNodeField({
+        name: 'authorIds',
         node,
-        name: 'authorId',
-        value: node.frontmatter.author,
+        value: node.frontmatter.authors
       })
     }
   }

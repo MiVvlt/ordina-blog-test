@@ -1,10 +1,12 @@
 export const shareToFacebook = (href, text) => {
-  window.FB.ui({
-    method: 'share',
-    mobile_iframe: true,
-    href,
-    quote: text,
-  })
+  if(!!window.FB){
+    window.FB.ui({
+      method: 'share',
+      mobile_iframe: true,
+      href,
+      quote: text,
+    })
+  }
 }
 
 export const shareToTwitter = (href, text) => {

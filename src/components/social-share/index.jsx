@@ -5,8 +5,8 @@ import { shareToTwitter, shareToFacebook } from '../../utils/share'
 
 import './index.scss'
 
-export const SocialShare = ({ title, author }) => {
-  const text = `Recommend on "${title}" written by @${author.name}`
+export const SocialShare = ({ title, authors }) => {
+  const text = `Recommend on "${title}" written by @${authors.map((author)=>{ return author.name + ', '})}`
 
   const onClickTwitterIcon = e => {
     e.preventDefault()
@@ -21,7 +21,7 @@ export const SocialShare = ({ title, author }) => {
 
   return (
     <div className="social-share">
-      <FacebookIcon onClick={onClickFacebookIcon} />
+      {!!window.FB && (<FacebookIcon onClick={onClickFacebookIcon} />)}
       <TwitterIcon onClick={onClickTwitterIcon} />
     </div>
   )

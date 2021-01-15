@@ -8,14 +8,20 @@ export const Bio = ({  author, isPost  }) => (
         <div className="bio">
           <div className="author">
             <div className="author-description">
-              <Image
-                className="author-image"
-                fluid={author.profilepicture.childImageSharp.fluid}
-                alt={author.name}
-                style={{
-                  borderRadius: `100%`,
-                }}
-              />
+              {
+                author.profilepicture && (
+                  <div>
+                    <Image
+                      className="author-image"
+                      fluid={author.profilepicture.childImageSharp.fluid}
+                      alt={author.name}
+                      style={{
+                        borderRadius: `100%`,
+                      }}
+                    />
+                  </div>
+                )
+              }
               <div className="author-name">
                 {isPost && (<span className="author-name-prefix">Written by</span>)}
                 <Link to={`/author/${author.id}`} className="author-name-content">

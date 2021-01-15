@@ -2,11 +2,11 @@
 import React from 'react'
 import { Bio } from '../components/bio'
 import { Layout } from '../layout'
-import { graphql } from 'gatsby';
+import { graphql } from 'gatsby'
 
 export default ({
                   data: {
-                    site: {siteMetadata},
+                    site: { siteMetadata },
                     authorYaml,
                     allMarkdownRemark: { edges: postNodes },
                   },
@@ -16,7 +16,8 @@ export default ({
   const { title } = siteMetadata
   return (
 
-    <Layout location={location} title={title}>
+    <Layout location={location}
+            title={title}>
       <Bio author={authorYaml} />
       {postNodes.map(({ node: post }, idx) => (
         <div key={post.id}>
@@ -34,19 +35,27 @@ export const pageQuery = graphql`
                 title
             }
         }
-        allMarkdownRemark(filter: { fields: { authorId: { eq: $authorId } } }) {
+        allMarkdownRemark(
+            filter:
+            {
+                fields: {
+                    authorIds: {
+                        eq: $authorId
+                    }
+                }
+            }
+        ) {
             edges {
                 node {
                     id
                     frontmatter {
                         title
-                        author {
+                        authors {
                             id
-
                         }
                     }
                     fields {
-                        authorId
+                        authorIds
                         slug
                     }
                 }
